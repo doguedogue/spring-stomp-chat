@@ -2,14 +2,30 @@ package com.doguedogue.chat.model.document;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "mensajes")
 public class Mensaje implements Serializable{
 	private static final long serialVersionUID = -3843141812010530417L;
+	
+	@Id
+	private String id;
+	
 	private String texto;
 	private Long fecha;
 	private String username;
 	private String tipo;
 	private String color;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getColor() {
 		return color;
 	}
